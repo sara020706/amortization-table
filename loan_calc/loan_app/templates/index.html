@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmortizePro - Loan Amortization Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-purple-700 to-purple-500 min-h-screen text-white font-[Poppins] flex flex-col">
+
+    <!-- Header -->
+    <header class="text-center py-10">
+        <h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 via-white to-purple-300">
+            AmortizePro
+        </h1>
+        <p class="mt-2 text-lg text-purple-200">Visualize your loan, take control of your future</p>
+    </header>
+
+    <!-- Input Form -->
+    <section class="flex justify-center px-4">
+        <form action="{% url 'loan_calculator' %}" method="POST" class="backdrop-blur-lg bg-white/10 p-6 rounded-2xl shadow-xl w-full max-w-lg">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Loan Amount</label>
+                <input type="number" name="principal" step="0.01" required
+                    class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Annual Interest Rate (%)</label>
+                <input type="number" name="interest_rate" step="0.01" required
+                    class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-1">Loan Term (Years)</label>
+                <input type="number" name="years" required
+                    class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            {% if error %}
+                <p class="text-red-400 text-sm mb-4">{{ error }}</p>
+            {% endif %}
+            <button type="submit"
+                class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-400 to-purple-600 hover:from-purple-300 hover:to-purple-500 transition-all shadow-lg hover:shadow-purple-500/50 font-semibold">
+                Calculate
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-6 text-center text-purple-200 text-sm">
+        Made with ❤️ in Django | <a href="https://github.com/yourusername/amortizepro" class="underline hover:text-purple-100">GitHub</a>
+    </footer>
+
+</body>
+</html>
+

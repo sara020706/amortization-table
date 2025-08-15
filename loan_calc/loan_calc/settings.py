@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-nf8&)8_n%9ca)=3h7lw=8$00@c8ad(=x-t!hsc^-y#5(7hh5!x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['amortization-table-1.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 

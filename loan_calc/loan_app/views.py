@@ -41,8 +41,7 @@ def generate_amortization_table(principal, annual_interest_rate, years):
     return table, monthly_payment
 
 
-def index(request):
-    return render(request, "index.html")
+
 
 
 def loan_calculator(request):
